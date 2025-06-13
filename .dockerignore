@@ -1,2 +1,49 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# Poetry virtual environments
+env/
+venv/
+*.venv/
+
+# Sensitive files
+.env
+*.env
+
+# Test artifacts
+tests/
+.coverage
+htmlcov/
+.pytest_cache/
+*.sqlite3
+
+# Development tools
+.mypy_cache/
+.ruff_cache/
+
+# Docker
+postgres_data/
+docker-compose.yml
+Dockerfile
+*.log
+
+# IDE and editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Git
 .git
 .gitignore
+
+# Documentation and misc
+README.md
+LICENSE
+*.md
