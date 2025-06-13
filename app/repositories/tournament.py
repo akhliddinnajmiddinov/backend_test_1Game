@@ -24,12 +24,16 @@ class TournamentRepository:
             select(Tournament).where(Tournament.id == tournament_id)
         )
         return result.scalar_one_or_none()
+    
+    async def get_all_tournaments(self) -> List[Tournament]:
+        result = self.db.execute(select(Tournament))
+        return result.scalars().all()
 
-    async def get_player_count(self, tournament_id: int) -> int:
+    async def get_tournament_by_name(self, name: str) -> Optional[Tournament]:
         result = self.db.execute(
-            select(func.count(Player.id)).where(Player.tournament_id == tournament_id)
+            select(Tournament).where(Tournament.name == name)
         )
-        return result.scalar_one()
+        return result.scalar_one_or_none()
 
     async def get_player_by_email(self, tournament_id: int, email: str) -> Optional[Player]:
         result = self.db.execute(

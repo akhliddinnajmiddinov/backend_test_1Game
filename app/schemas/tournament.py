@@ -15,7 +15,7 @@ class TournamentResponse(BaseModel):
     registered_players: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class PlayerRegister(BaseModel):
     name: str = Field(..., min_length=1, max_length=50)
@@ -27,7 +27,7 @@ class PlayerResponse(BaseModel):
     email: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class TournamentPlayersResponse(BaseModel):
     tournament_id: int

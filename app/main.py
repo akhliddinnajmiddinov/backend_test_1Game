@@ -1,6 +1,6 @@
 from fastapi import FastAPI
+from fastapi.responses import RedirectResponse
 from app.api.tournament import router as tournament_router
-from app.db import get_db  # Import for dependency injection
 
 app = FastAPI(
     title="Mini-Tournament System",
@@ -15,9 +15,9 @@ app.include_router(
     tags=["tournaments"],
 )
 
-@app.get("/", tags=["root"])
+@app.get("/", include_in_schema=False)
 async def root():
     """
-    Root endpoint for the Tournament API.
+    Root endpoint — redirect to Swagger docs.
     """
-    return {"message": "Welcome to the Mini-Tournament System API"}
+    return RedirectResponse(url="/docs", status_code=301)
