@@ -3,6 +3,7 @@ from logging.config import fileConfig
 from alembic import context
 from dotenv import load_dotenv
 import app.models
+from app.models.tournament import Tournament, Player
 import os
 
 load_dotenv()
