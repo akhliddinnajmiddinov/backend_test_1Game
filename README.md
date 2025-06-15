@@ -18,7 +18,7 @@ cd backend_test_1Game
 
 Ensure **Docker** and **Docker Compose** are installed on your system.
 
-### 3. Run the Development Server
+### 3. Create .env file using .env.example and run the Development Server
 
 ```bash
 make dev
