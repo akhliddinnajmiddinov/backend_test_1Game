@@ -10,6 +10,12 @@ test:
 	ls
 	docker compose run --rm app poetry run pytest tests/test_tournament.py
 	
+lint:
+	# Run code format check and linter
+	docker compose run --rm app poetry run ruff check .
+	# Run type checking
+	docker compose run --rm app poetry run mypy .
+
 down:
 	docker compose down -v
 
