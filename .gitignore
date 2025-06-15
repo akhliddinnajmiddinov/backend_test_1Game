@@ -7,43 +7,42 @@ __pycache__/
 *.egg-info/
 dist/
 build/
-
-# Poetry
-poetry.lock
+*.egg
 
 # Virtual environments
-env/
 venv/
-*.venv/
-
-# Sensitive files
-.env
+.venv/
+env/
 *.env
 
-# Test artifacts
-.coverage
-htmlcov/
-.pytest_cache/
-*.sqlite3
-
-# Development tools
-.mypy_cache/
-.ruff_cache/
+# Poetry
+poetry.lock  # Optional, include if dependencies are stable
+.cache/
 
 # Docker
-postgres_data/
+docker-compose.yml  # Optional, include if environment-specific
 *.log
+postgres_data/
+*.sock
+*.pid
 
 # IDE and editor files
 .idea/
-.vscode/
 *.swp
 *.swo
-
-# System files
+.vscode/
 .DS_Store
-Thumbs.db
 
-# alembic
-alembic/__pycache__/
-alembic/versions/
+# Testing
+.pytest_cache/
+coverage/
+*.cov
+.tox/
+
+# Alembic (optional, only if migrations are generated dynamically)
+alembic/versions/*.py
+
+# Miscellaneous
+*.bak
+*.tmp
+*.backup
