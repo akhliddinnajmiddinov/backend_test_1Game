@@ -21,6 +21,8 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8000:8000"
+    environment:
+      - PYTHONPATH=/app
     depends_on:
       postgres:
         condition: service_healthy

@@ -1,5 +1,5 @@
-# Use official Python 3.11 slim image
-FROM python:3.11-slim
+# Use official Python 3.12 slim image
+FROM python:3.12-slim
 
 # Set working directory
 WORKDIR /app
@@ -8,6 +8,8 @@ WORKDIR /app
 RUN apt-get update && apt-get install -y \
     build-essential \
     curl \
+    libpq-dev \
+    python3-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Install Poetry
@@ -17,8 +19,8 @@ ENV PATH="/root/.local/bin:$PATH"
 # Copy Poetry files
 COPY pyproject.toml poetry.lock /app/
 
-# Install dependencies
-RUN poetry config virtualenvs.create false && poetry install --only main --no-root
+# Install all dependencies (main and dev)
+RUN poetry config virtualenvs.create false && poetry install --no-root
 
 # Copy application code
 COPY . /app

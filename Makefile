@@ -7,7 +7,8 @@ migrate:
 	docker compose run --rm app poetry run alembic upgrade head
 
 test:
-	docker compose run --rm app poetry run pytest
+	ls
+	docker compose run --rm app poetry run pytest tests/test_tournament.py
 
 down:
 	docker compose down -v

@@ -1,4 +1,4 @@
-from pydantic import BaseModel, EmailStr, Field
+from pydantic import BaseModel, EmailStr, Field, ConfigDict
 from datetime import datetime
 from typing import List
 
@@ -14,8 +14,7 @@ class TournamentResponse(BaseModel):
     start_at: datetime
     registered_players: int
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 class PlayerRegister(BaseModel):
     name: str = Field(..., min_length=1, max_length=50)
@@ -26,8 +25,7 @@ class PlayerResponse(BaseModel):
     name: str
     email: str
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(from_attributes=True)
 
 class TournamentPlayersResponse(BaseModel):
     tournament_id: int
