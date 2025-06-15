@@ -1,7 +1,7 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from app.db import get_db
-from app.schemas.tournament import TournamentCreate, TournamentResponse, PlayerRegister, PlayerResponse, TournamentPlayersResponse
+from app.schemas.tournament import TournamentCreate, TournamentResponse, PlayerRegister, TournamentPlayersResponse
 from app.services.tournament import TournamentService
 from typing import List
 

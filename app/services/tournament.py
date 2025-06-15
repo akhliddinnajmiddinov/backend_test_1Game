@@ -71,7 +71,7 @@ class TournamentService:
             raise HTTPException(status_code=400, detail="Email already registered in this tournament")
 
         # Register player
-        db_player = await self.repo.register_player(tournament_id, player)
+        await self.repo.register_player(tournament_id, player)
         return TournamentResponse(
             id=db_tournament.id,
             name=db_tournament.name,

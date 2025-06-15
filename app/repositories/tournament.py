@@ -1,5 +1,5 @@
 from sqlalchemy.orm import Session
-from sqlalchemy import select, func
+from sqlalchemy import select
 from app.models.tournament import Tournament, Player
 from app.schemas.tournament import TournamentCreate, PlayerRegister
 from typing import Optional, List

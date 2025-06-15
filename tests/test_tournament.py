@@ -8,9 +8,6 @@ from datetime import datetime, timezone, timedelta
 from app.main import app
 from app.db import Base, get_db
 from app.schemas.tournament import TournamentCreate, PlayerRegister
-from app.services.tournament import TournamentService
-from app.repositories.tournament import TournamentRepository
-from app.models.tournament import Tournament, Player
 
 # Test database setup
 TEST_DATABASE_URL = "sqlite:///:memory:"

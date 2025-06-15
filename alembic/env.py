@@ -1,14 +1,12 @@
-import os
+from app.db import Base, engine
 from logging.config import fileConfig
-from sqlalchemy import engine_from_config, pool
 from alembic import context
 from dotenv import load_dotenv
+import app.models
+import os
 
 load_dotenv()
 
-from app.db import Base, engine
-from app.models.tournament import Tournament, Player
-import app.models
 
 config = context.config
 config.set_main_option("sqlalchemy.url", os.getenv("DATABASE_URL"))
